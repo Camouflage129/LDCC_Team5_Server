@@ -1,13 +1,40 @@
 package com.ldcc.team5.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ldcc.team5.user.service.UserService;
 
 @RestController
 public class UserController {
+	@Resource(name="UserService")
+	UserService service;
 	
 	@RequestMapping(value="/main.do")
 	public String mainDo() {
 		return "index.jsp";
+	}
+	
+	@RequestMapping(value="/login/{id}/{pw}", method = RequestMethod.GET)
+	public ResponseEntity<List<String>> login(@PathVariable("id") String id, @PathVariable("pw") String pw) {
+		ResponseEntity<List<String>> resEntity = null;
+		try {
+			List<String> list = new ArrayList<>();
+			System.out.println(list);
+			resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return resEntity;
 	}
 }
