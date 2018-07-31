@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ldcc.team5.model.UserModel;
 import com.ldcc.team5.user.service.UserService;
 
 @RestController
@@ -29,7 +30,10 @@ public class UserController {
 		ResponseEntity<List<String>> resEntity = null;
 		try {
 			List<String> list = new ArrayList<>();
-			System.out.println(list);
+			UserModel login = service.login(new UserModel(id, pw));
+			if(login != null)
+				list.add(login.getId());
+			System.out.println(login);
 			resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
