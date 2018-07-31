@@ -31,10 +31,13 @@ public class UserController {
 		try {
 			List<UserModel> list = new ArrayList<>();
 			UserModel login = service.login(new UserModel(id, pw));
-			if(login != null)
+			if(login != null) {
 				list.add(login);
-			System.out.println(login);
-			resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+				System.out.println(login);
+				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+			}
+			else 
+				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
 			e.printStackTrace();
 			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

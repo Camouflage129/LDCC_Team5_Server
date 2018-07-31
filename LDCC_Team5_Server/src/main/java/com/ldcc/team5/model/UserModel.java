@@ -10,6 +10,10 @@ public class UserModel {
 	String region;
 	Date date;
 	
+	public UserModel() {
+		super();
+	}
+
 	public UserModel(String id, String pw) {
 		super();
 		this.id = id;
