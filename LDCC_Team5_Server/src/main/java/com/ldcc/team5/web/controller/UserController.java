@@ -26,13 +26,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/login/{id}/{pw}", method = RequestMethod.GET)
-	public ResponseEntity<List<String>> login(@PathVariable("id") String id, @PathVariable("pw") String pw) {
-		ResponseEntity<List<String>> resEntity = null;
+	public ResponseEntity<List<UserModel>> login(@PathVariable("id") String id, @PathVariable("pw") String pw) {
+		ResponseEntity<List<UserModel>> resEntity = null;
 		try {
-			List<String> list = new ArrayList<>();
+			List<UserModel> list = new ArrayList<>();
 			UserModel login = service.login(new UserModel(id, pw));
 			if(login != null)
-				list.add(login.getId());
+				list.add(login);
 			System.out.println(login);
 			resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 		} catch (Exception e) {
