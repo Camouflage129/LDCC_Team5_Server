@@ -29,7 +29,7 @@ public class UserController {
 	
 	@CrossOrigin
 	@RequestMapping(value="/login/{id}/{pw}", method = RequestMethod.GET)
-	public ResponseEntity<List<UserModel>> login(@PathVariable("id") String id, @PathVariable("pw") String pw, HttpSession session) {
+	public ResponseEntity<List<UserModel>> login(@PathVariable("id") String id, @PathVariable("pw") String pw) {
 		ResponseEntity<List<UserModel>> resEntity = null;
 		List<UserModel> list = new ArrayList<>();
 		try {
@@ -38,7 +38,6 @@ public class UserController {
 				login.setPw("");
 				list.add(login);
 				System.out.println(login);
-				session.setAttribute("login", login);
 				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 			}
 			else 
