@@ -43,6 +43,14 @@ public class ProductInfoModel {
 		this.sort_num = sort_num;
 	}
 
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public String getCode() {
 		return code;
 	}
