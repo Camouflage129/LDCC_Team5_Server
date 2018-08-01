@@ -1,5 +1,6 @@
 package com.ldcc.team5.web.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,31 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ldcc.team5.model.UserModel;
-import com.ldcc.team5.user.service.UserService;
+import com.ldcc.team5.model.ProductInfoModel;
+import com.ldcc.team5.product.service.ProductService;
 
 @RestController
-public class UserController {
-	@Resource(name="UserService")
-	UserService service;
-	
-	@RequestMapping(value="/main.do")
-	public String mainDo() {
-		return "index.jsp";
-	}
+public class ProductController {
+	@Resource(name="ProductService")
+	ProductService service;	
 	
 	@CrossOrigin
-	@RequestMapping(value="/login/{id}/{pw}", method = RequestMethod.GET)
-	public ResponseEntity<List<UserModel>> login(@PathVariable("id") String id, @PathVariable("pw") String pw, HttpSession session) {
-		ResponseEntity<List<UserModel>> resEntity = null;
+	@RequestMapping(value="/getProductList/{id}/{today}", method = RequestMethod.GET)
+	public ResponseEntity<List<ProductInfoModel>> login(@PathVariable("id") String id, @PathVariable("today") Date date, HttpSession session) {
+		ResponseEntity<List<ProductInfoModel>> resEntity = null;
 		try {
-			List<UserModel> list = new ArrayList<>();
-			UserModel login = service.login(new UserModel(id, pw));
-			if(login != null) {
-				login.setPw("");
-				list.add(login);
-				System.out.println(login);
-				session.setAttribute("login", login);
+			List<ProductInfoModel> list = new ArrayList<>();
+			list = service.getProductList(new ProductInfoModel(id,date));
+			if(!list.isEmpty()) {
+				System.out.println(list);
 				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 			}
 			else 

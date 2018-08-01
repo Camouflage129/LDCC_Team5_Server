@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="UserMapper">
-	<select id="login" parameterType="UserModel" resultType="UserModel">
+<mapper namespace="ProductMapper">
+	<select id="get" parameterType="ProductInfoModel" resultType="ProductInfoModel">
 		SELECT *
-		FROM users
-		WHERE id = #{id}
-		AND pw = #{pw}
+		FROM productinfo
+		WHERE id = #{id} 
+		AND date = #{date}
 	</select>
 </mapper>

@@ -7,6 +7,6 @@
 		SELECT *
 		FROM users
 		WHERE id = #{id}
-			AND pw = #{pw}
+		AND pw = #{pw}
 	</select>
 </mapper>
