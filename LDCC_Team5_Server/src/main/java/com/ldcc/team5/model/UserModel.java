@@ -5,6 +5,7 @@ import java.sql.Date;
 public class UserModel {
 	String id;
 	String pw;
+	String name;
 	String affiliation;
 	String preference;
 	String region;
@@ -20,16 +21,18 @@ public class UserModel {
 		this.pw = pw;
 	}
 	
-	public UserModel(String id, String pw, String affiliation, String preference, String region, Date date) {
+	public UserModel(String id, String pw, String name, String affiliation, String preference, String region,
+			Date date) {
 		super();
 		this.id = id;
 		this.pw = pw;
+		this.name = name;
 		this.affiliation = affiliation;
 		this.preference = preference;
 		this.region = region;
 		this.date = date;
 	}
-	
+
 	public String getId() {
 		return id;
 	}

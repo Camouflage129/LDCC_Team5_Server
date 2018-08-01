@@ -31,8 +31,8 @@ public class UserController {
 	@RequestMapping(value="/login/{id}/{pw}", method = RequestMethod.GET)
 	public ResponseEntity<List<UserModel>> login(@PathVariable("id") String id, @PathVariable("pw") String pw, HttpSession session) {
 		ResponseEntity<List<UserModel>> resEntity = null;
+		List<UserModel> list = new ArrayList<>();
 		try {
-			List<UserModel> list = new ArrayList<>();
 			UserModel login = service.login(new UserModel(id, pw));
 			if(login != null) {
 				login.setPw("");

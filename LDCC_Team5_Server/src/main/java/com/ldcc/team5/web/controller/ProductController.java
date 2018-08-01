@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class ProductController {
 	
 	@CrossOrigin
 	@RequestMapping(value="/getProductList/{id}/{today}", method = RequestMethod.GET)
-	public ResponseEntity<List<ProductInfoModel>> login(@PathVariable("id") String id, @PathVariable("today") Date date, HttpSession session) {
+	public ResponseEntity<List<ProductInfoModel>> login(@PathVariable("id") String id, @PathVariable("today") Date date) {
 		ResponseEntity<List<ProductInfoModel>> resEntity = null;
 		try {
 			List<ProductInfoModel> list = new ArrayList<>();

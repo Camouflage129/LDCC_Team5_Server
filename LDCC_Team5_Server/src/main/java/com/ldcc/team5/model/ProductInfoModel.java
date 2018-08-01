@@ -3,6 +3,7 @@ package com.ldcc.team5.model;
 import java.sql.Date;
 
 public class ProductInfoModel {
+	int num;
 	String code;
 	String region;
 	String id;
@@ -25,9 +26,10 @@ public class ProductInfoModel {
 		this.date = date;
 	}
 
-	public ProductInfoModel(String code, String region, String id, String volume, int weigh, String address,
+	public ProductInfoModel(int num, String code, String region, String id, String volume, int weigh, String address,
 			String recipient, String phone, Date date, String delivery_complete, int sort_num) {
 		super();
+		this.num = num;
 		this.code = code;
 		this.region = region;
 		this.id = id;
