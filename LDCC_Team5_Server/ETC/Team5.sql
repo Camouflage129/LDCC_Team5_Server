@@ -1,7 +1,4 @@
-/**********************************/
-/* Table Name: Users */
-/**********************************/
-CREATE TABLE Users(
+CREATE TABLE users(
 		id VARCHAR(30),
 		pw VARCHAR(128) NOT NULL,
 		affiliation VARCHAR(100),
@@ -9,10 +6,8 @@ CREATE TABLE Users(
 		region VARCHAR(20),
 		date DATE
 );
-/**********************************/
-/* Table Name: ProductInfo */
-/**********************************/
-CREATE TABLE ProductInfo(
+
+CREATE TABLE productinfo(
 		code VARCHAR(200),
 		region VARCHAR(20),
 		volume VARCHAR(10),
@@ -25,8 +20,9 @@ CREATE TABLE ProductInfo(
 		sort_num INT
 );
 
-ALTER TABLE Users ADD CONSTRAINT IDX_Users_PK PRIMARY KEY (id);
+ALTER TABLE users ADD CONSTRAINT IDX_users_PK PRIMARY KEY (id);
 
-ALTER TABLE ProductInfo ADD CONSTRAINT IDX_ProductInfo_PK PRIMARY KEY (code);
+ALTER TABLE productinfo ADD CONSTRAINT IDX_productinfo_PK PRIMARY KEY (code);
 
-INSERT INTO Users Values('test', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'a', 'a', 'a', '2018-08-01');
+INSERT INTO users VALUES('test', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'a', 'a', 'a', '2018-08-01');
+INSERT INTO users VALUES('test2', '1234', 'a', 'a', 'a', '2018-08-01');

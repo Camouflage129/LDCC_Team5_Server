@@ -37,7 +37,7 @@ public class UserController {
 				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 			}
 			else 
-				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
