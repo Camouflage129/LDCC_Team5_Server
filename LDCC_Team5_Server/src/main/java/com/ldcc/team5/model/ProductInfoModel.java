@@ -8,7 +8,7 @@ public class ProductInfoModel {
 	String region;
 	String id;
 	String volume;
-	int weigh;
+	int weight;
 	String address;
 	String recipient;
 	String phone;
@@ -34,7 +34,7 @@ public class ProductInfoModel {
 		this.region = region;
 		this.id = id;
 		this.volume = volume;
-		this.weigh = weigh;
+		this.weight = weigh;
 		this.address = address;
 		this.recipient = recipient;
 		this.phone = phone;
@@ -84,11 +84,11 @@ public class ProductInfoModel {
 	}
 
 	public int getWeigh() {
-		return weigh;
+		return weight;
 	}
 
 	public void setWeigh(int weigh) {
-		this.weigh = weigh;
+		this.weight = weigh;
 	}
 
 	public String getAddress() {
@@ -142,7 +142,7 @@ public class ProductInfoModel {
 	@Override
 	public String toString() {
 		return "ProductInfoModel [code=" + code + ", region=" + region + ", id=" + id + ", volume=" + volume
-				+ ", weigh=" + weigh + ", address=" + address + ", recipient=" + recipient + ", phone=" + phone
+				+ ", weigh=" + weight + ", address=" + address + ", recipient=" + recipient + ", phone=" + phone
 				+ ", date=" + date + ", delivery_complete=" + delivery_complete + ", sort_num=" + sort_num + "]";
 	}
 }
