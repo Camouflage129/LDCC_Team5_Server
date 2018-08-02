@@ -15,4 +15,29 @@
 		FROM productinfo
 		WHERE code = #{code}
 	</select>
+
+	<select id="getProductInfo2" parameterType="Integer" resultType="ProductInfoModel">
+		SELECT *
+		FROM productinfo
+		WHERE num = #{num}
+	</select>
+	
+	<select id="getRemainBox" resultType="Integer">
+		SELELCT IFNULL(COUNT(*), 0)
+		FROM productinfo
+		WHERE delivery_complete = n;
+	</select>
+	
+	<select id="getTotalBox" parameterType="ProductInfoModel" resultType="Integer">
+		SELECT IFNULL(COUNT(*), 0)
+		FROM productinfo
+		WHERE id = #{id} 
+		AND date = #{date}
+	</select>
+	
+	<update id="deliveryComplete" parameterType="String">
+		UPDATE productinfo
+		SET delivery_complete = y
+		WHERE code = #{code} 
+	</update>
 </mapper>
