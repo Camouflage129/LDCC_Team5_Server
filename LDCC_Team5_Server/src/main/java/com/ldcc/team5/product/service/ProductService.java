@@ -7,4 +7,6 @@ import com.ldcc.team5.model.ProductInfoModel;
 public interface ProductService {
 	public List<ProductInfoModel> getProductList(ProductInfoModel model);
 	public ProductInfoModel getProductInfo(String code);
+	public ProductInfoModel getProductInfo2(int num);
+	public int deliveryComplete(ProductInfoModel model);
 }

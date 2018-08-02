@@ -26,6 +26,12 @@ public class ProductInfoModel {
 		this.date = date;
 	}
 
+	public ProductInfoModel(String code, String delivery_complete) {
+		super();
+		this.code = code;
+		this.delivery_complete = delivery_complete;
+	}
+
 	public ProductInfoModel(int num, String code, String region, String id, String volume, int weigh, String address,
 			String recipient, String phone, Date date, String delivery_complete, int sort_num) {
 		super();

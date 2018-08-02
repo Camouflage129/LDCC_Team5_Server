@@ -62,4 +62,42 @@ public class ProductController {
 		}
 		return resEntity;
 	}
+
+	@CrossOrigin
+	@RequestMapping(value="/getProductInfo2/{num}", method = RequestMethod.GET)
+	public ResponseEntity<List<ProductInfoModel>> getProductInfo2(@PathVariable("nym") int num) {
+		ResponseEntity<List<ProductInfoModel>> resEntity = null;
+		try {
+			List<ProductInfoModel> list = new ArrayList<>();
+			ProductInfoModel model = service.getProductInfo2(num);
+			if(model != null) {
+				list.add(model);
+				System.out.println(model);
+				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+			}
+			else 
+				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return resEntity;
+	}
+
+	@CrossOrigin
+	@RequestMapping(value="/deliveryComplete/{code}", method = RequestMethod.PUT)
+	public ResponseEntity<String> deliveryComplete(@PathVariable("code") String code) {
+		ResponseEntity<String> resEntity = null;
+		try {
+			int row = service.deliveryComplete(new ProductInfoModel(code,"n"));
+			if(row > 0) 
+				resEntity = new ResponseEntity<>("success", HttpStatus.OK);
+			else 
+				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return resEntity;
+	}
 }

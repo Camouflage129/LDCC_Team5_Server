@@ -15,4 +15,16 @@
 		FROM productinfo
 		WHERE code = #{code}
 	</select>
+
+	<select id="getProductInfo2" parameterType="Integer" resultType="ProductInfoModel">
+		SELECT *
+		FROM productinfo
+		WHERE num = #{num}
+	</select>
+	
+	<update id="deliveryComplete" parameterType="ProductInfoModel">
+		UPDATE productinfo
+		SET delivery_complete = #{delivery_complete}
+		WHERE code = #{code}
+	</update>
 </mapper>

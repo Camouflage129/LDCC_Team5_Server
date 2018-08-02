@@ -22,4 +22,14 @@ public class ProductDAOImpl implements ProductDAO{
 	public ProductInfoModel getProductInfo(String code) {
 		return mybatis.selectOne("ProductMapper.getProductInfo", code);
 	}
+
+	@Override
+	public ProductInfoModel getProductInfo2(int num) {
+		return mybatis.selectOne("ProductMapper.getProductInfo2", num);
+	}
+
+	@Override
+	public int deliveryComplete(ProductInfoModel model) {
+		return mybatis.update("ProductMapper.deliveryComplete", model);
+	}
 }
