@@ -31,8 +31,15 @@ public class ProductInfoModel {
 		this.code = code;
 		this.delivery_complete = delivery_complete;
 	}
+	
+	public ProductInfoModel(String id, Date date, String delivery_complete) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.delivery_complete = delivery_complete;
+	}
 
-	public ProductInfoModel(int num, String code, String region, String id, String volume, int weigh, String address,
+	public ProductInfoModel(int num, String code, String region, String id, String volume, int weight, String address,
 			String recipient, String phone, Date date, String delivery_complete, int sort_num) {
 		super();
 		this.num = num;
@@ -40,7 +47,7 @@ public class ProductInfoModel {
 		this.region = region;
 		this.id = id;
 		this.volume = volume;
-		this.weight = weigh;
+		this.weight = weight;
 		this.address = address;
 		this.recipient = recipient;
 		this.phone = phone;
@@ -89,12 +96,12 @@ public class ProductInfoModel {
 		this.volume = volume;
 	}
 
-	public int getWeigh() {
+	public int getWeight() {
 		return weight;
 	}
 
-	public void setWeigh(int weigh) {
-		this.weight = weigh;
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 
 	public String getAddress() {
@@ -147,8 +154,9 @@ public class ProductInfoModel {
 
 	@Override
 	public String toString() {
-		return "ProductInfoModel [code=" + code + ", region=" + region + ", id=" + id + ", volume=" + volume
-				+ ", weigh=" + weight + ", address=" + address + ", recipient=" + recipient + ", phone=" + phone
-				+ ", date=" + date + ", delivery_complete=" + delivery_complete + ", sort_num=" + sort_num + "]";
+		return "ProductInfoModel [num=" + num + ", code=" + code + ", region=" + region + ", id=" + id + ", volume="
+				+ volume + ", weight=" + weight + ", address=" + address + ", recipient=" + recipient + ", phone="
+				+ phone + ", date=" + date + ", delivery_complete=" + delivery_complete + ", sort_num=" + sort_num
+				+ "]";
 	}
 }

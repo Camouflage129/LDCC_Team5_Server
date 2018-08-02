@@ -27,4 +27,19 @@
 		SET delivery_complete = #{delivery_complete}
 		WHERE code = #{code}
 	</update>
+	
+	<select id="getTotalProductCount" parameterType="ProductInfoModel" resultType="ProductInfoModel">
+		SELECT COUNT(*)
+		FROM productinfo
+		WHERE id = #{id} 
+		AND date = #{date}
+	</select>
+	
+	<select id="getRemainProductCount" parameterType="ProductInfoModel" resultType="ProductInfoModel">
+		SELECT COUNT(*)
+		FROM productinfo
+		WHERE id = #{id} 
+		AND date = #{date}
+		AND delivery_complete = ${delivery_complete}
+	</select>
 </mapper>

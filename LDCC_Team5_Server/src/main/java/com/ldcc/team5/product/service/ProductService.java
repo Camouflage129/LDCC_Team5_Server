@@ -9,4 +9,6 @@ public interface ProductService {
 	public ProductInfoModel getProductInfo(String code);
 	public ProductInfoModel getProductInfo2(int num);
 	public int deliveryComplete(ProductInfoModel model);
+	public int getTotalProductCount(ProductInfoModel model);
+	public int getRemainProductCount(ProductInfoModel model);
 }

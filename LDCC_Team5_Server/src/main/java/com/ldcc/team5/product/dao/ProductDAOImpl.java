@@ -32,4 +32,14 @@ public class ProductDAOImpl implements ProductDAO{
 	public int deliveryComplete(ProductInfoModel model) {
 		return mybatis.update("ProductMapper.deliveryComplete", model);
 	}
+
+	@Override
+	public int getTotalProductCount(ProductInfoModel model) {
+		return mybatis.selectOne("ProductMapper.getTotalProductCount", model);
+	}
+
+	@Override
+	public int getRemainProductCount(ProductInfoModel model) {
+		return mybatis.selectOne("ProductMapper.getRemainProductCount", model);
+	}
 }

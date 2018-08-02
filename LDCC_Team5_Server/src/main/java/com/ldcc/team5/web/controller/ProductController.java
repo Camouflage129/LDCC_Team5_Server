@@ -65,7 +65,7 @@ public class ProductController {
 
 	@CrossOrigin
 	@RequestMapping(value="/getProductInfo2/{num}", method = RequestMethod.GET)
-	public ResponseEntity<List<ProductInfoModel>> getProductInfo2(@PathVariable("nym") int num) {
+	public ResponseEntity<List<ProductInfoModel>> getProductInfo2(@PathVariable("num") int num) {
 		ResponseEntity<List<ProductInfoModel>> resEntity = null;
 		try {
 			List<ProductInfoModel> list = new ArrayList<>();
@@ -89,9 +89,32 @@ public class ProductController {
 	public ResponseEntity<String> deliveryComplete(@PathVariable("code") String code) {
 		ResponseEntity<String> resEntity = null;
 		try {
-			int row = service.deliveryComplete(new ProductInfoModel(code,"n"));
+			int row = service.deliveryComplete(new ProductInfoModel(code,"y"));
 			if(row > 0) 
 				resEntity = new ResponseEntity<>("success", HttpStatus.OK);
+			else 
+				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return resEntity;
+	}
+
+	@CrossOrigin
+	@RequestMapping(value="/userStatus/{id}/{date}", method = RequestMethod.PUT)
+	public ResponseEntity<List<Integer>> userStatus(@PathVariable("id") String id, @PathVariable("id") Date date) {
+		ResponseEntity<List<Integer>> resEntity = null;
+		try {
+			List<Integer> list = new ArrayList<>();
+			ProductInfoModel model = new ProductInfoModel(id, date, "n");
+			int remain = service.getRemainProductCount(model);
+			int total = service.getTotalProductCount(model);
+			if(total > 0)  {
+				list.add(total-remain);
+				list.add(total);
+				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+			}
 			else 
 				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {

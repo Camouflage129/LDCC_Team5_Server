@@ -33,4 +33,14 @@ public class ProductServiceImpl implements ProductService{
 	public int deliveryComplete(ProductInfoModel model) {
 		return dao.deliveryComplete(model);
 	}
+
+	@Override
+	public int getTotalProductCount(ProductInfoModel model) {
+		return dao.getTotalProductCount(model);
+	}
+
+	@Override
+	public int getRemainProductCount(ProductInfoModel model) {
+		return dao.getRemainProductCount(model);
+	}
 }
