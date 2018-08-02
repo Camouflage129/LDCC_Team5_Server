@@ -17,4 +17,9 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<ProductInfoModel> getProductList(ProductInfoModel model) {
 		return mybatis.selectList("ProductMapper.getProductList", model);
 	}
+
+	@Override
+	public ProductInfoModel getProductInfo(String code) {
+		return mybatis.selectOne("ProductMapper.getProductInfo", code);
+	}
 }

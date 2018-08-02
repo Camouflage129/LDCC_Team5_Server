@@ -18,4 +18,9 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductInfoModel> getProductList(ProductInfoModel model) {
 		return dao.getProductList(model);
 	}
+
+	@Override
+	public ProductInfoModel getProductInfo(String code) {
+		return dao.getProductInfo(code);
+	}
 }
