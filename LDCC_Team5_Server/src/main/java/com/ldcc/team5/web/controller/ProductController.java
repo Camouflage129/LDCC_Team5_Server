@@ -103,7 +103,7 @@ public class ProductController {
 
 	@CrossOrigin
 	@RequestMapping(value="/userStatus/{id}/{date}", method = RequestMethod.GET)
-	public ResponseEntity<List<Integer>> userStatus(@PathVariable("id") String id, @PathVariable("id") Date date) {
+	public ResponseEntity<List<Integer>> userStatus(@PathVariable("id") String id, @PathVariable("date") Date date) {
 		ResponseEntity<List<Integer>> resEntity = null;
 		try {
 			List<Integer> list = new ArrayList<>();
@@ -115,8 +115,11 @@ public class ProductController {
 				list.add(total);
 				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
 			}
-			else 
-				resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			else {
+				list.add(0);
+				list.add(0);
+				resEntity = new ResponseEntity<>(list, HttpStatus.OK);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			resEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

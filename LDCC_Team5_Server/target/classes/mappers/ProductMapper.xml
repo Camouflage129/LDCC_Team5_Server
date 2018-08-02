@@ -28,18 +28,18 @@
 		WHERE code = #{code}
 	</update>
 	
-	<select id="getTotalProductCount" parameterType="ProductInfoModel" resultType="ProductInfoModel">
+	<select id="getTotalProductCount" parameterType="ProductInfoModel" resultType="Integer">
 		SELECT COUNT(*)
 		FROM productinfo
 		WHERE id = #{id} 
 		AND date = #{date}
 	</select>
 	
-	<select id="getRemainProductCount" parameterType="ProductInfoModel" resultType="ProductInfoModel">
+	<select id="getRemainProductCount" parameterType="ProductInfoModel" resultType="Integer">
 		SELECT COUNT(*)
 		FROM productinfo
 		WHERE id = #{id} 
 		AND date = #{date}
-		AND delivery_complete = ${delivery_complete}
+		AND delivery_complete = #{delivery_complete}
 	</select>
 </mapper>
