@@ -102,7 +102,7 @@ public class ProductController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value="/userStatus/{id}/{date}", method = RequestMethod.PUT)
+	@RequestMapping(value="/userStatus/{id}/{date}", method = RequestMethod.GET)
 	public ResponseEntity<List<Integer>> userStatus(@PathVariable("id") String id, @PathVariable("id") Date date) {
 		ResponseEntity<List<Integer>> resEntity = null;
 		try {
